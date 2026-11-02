@@ -19,13 +19,20 @@ are retained.
 
 ## Getting started
 
-Initialize the UE4SS submodule, then generate and build the project:
+The UE4SS submodule tracks the latest commit on its `main` branch. Before
+building, update that submodule and initialize the nested dependencies, then
+generate and build the project:
 
 ```bat
-git submodule update --init --recursive
+git submodule update --init --remote deps/RE-UE4SS
+git -C deps/RE-UE4SS submodule update --init --recursive
 cmake -B build -G "Visual Studio 17 2022"
 cmake --build build --config Game__Shipping__Win64
 ```
+
+The batch files in `build_scripts/` perform both submodule update steps
+automatically. They require a network connection and build against the current
+`main` branch tip, so the exact UE4SS revision can change between builds.
 
 Edit `include/CPPModTemplate.hpp` to customize the mod metadata and behavior.
 Keep `version.h` in sync when changing the mod version or product name. Add
