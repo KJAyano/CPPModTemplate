@@ -33,3 +33,9 @@
 
 BuildFiles/
 Output/
+build/
+.vs/
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+Testing/
