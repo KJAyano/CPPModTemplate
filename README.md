@@ -24,8 +24,7 @@ building, update that submodule and initialize the nested dependencies, then
 generate and build the project:
 
 ```bat
-git submodule update --init --remote deps/RE-UE4SS
-git -C deps/RE-UE4SS submodule update --init --recursive
+git submodule update --init --recursive
 cmake -B build -G "Visual Studio 17 2022"
 cmake --build build --config Game__Shipping__Win64
 ```
